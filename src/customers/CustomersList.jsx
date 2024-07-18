@@ -14,9 +14,9 @@ export const CustomerList = () => {
 
   return (
     <div className="customers">
-      {customers.map((customerObj) => {
-        return <User user={customerObj} />;
-      })}
+      {customers.map((customerObj) => (
+        <User user={customerObj} key={customerObj.id} />
+      ))}
     </div>
   );
 };
