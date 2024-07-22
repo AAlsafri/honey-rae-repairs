@@ -3,8 +3,9 @@ import { NavBar } from "./components/nav/NavBar";
 import { TicketList } from "./components/TicketsList";
 import { Welcome } from "./components/welcome/Welcome";
 import { CustomerDetails } from "./customers/CustomerDetails";
+import { EmployeeDetails } from "./employees/EmployeeDetails";
 import { CustomerList } from "./customers/CustomersList";
-import { EmployeeList } from "./services/employees/EmployeeList";
+import { EmployeeList } from "./employees/EmployeeList";
 import { Routes, Route, Outlet } from "react-router-dom";
 
 export const App = () => {
@@ -22,7 +23,10 @@ export const App = () => {
       >
         <Route index element={<Welcome />} />
         <Route path="/tickets" element={<TicketList />} />
-        <Route path="/employees" element={<EmployeeList />} />
+        <Route path="/employees">
+          <Route index element={<EmployeeList />} />
+          <Route path=":employeeId" element={<EmployeeDetails />} />
+        </Route>
         <Route path="/customers">
           <Route index element={<CustomerList />} />
           <Route path=":customerId" element={<CustomerDetails />} />
